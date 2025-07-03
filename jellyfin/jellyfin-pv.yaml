@@ -11,7 +11,7 @@ spec:
   storageClassName: nfs-client
   nfs:
     server: 192.168.0.148
-    path: /docker/data
+    path: /docker/data/media
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
