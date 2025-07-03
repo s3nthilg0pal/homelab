@@ -8,6 +8,7 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
+  storageClassName: nfs-client
   nfs:
     server: 192.168.0.148
     path: /docker/data
@@ -23,3 +24,4 @@ spec:
     requests:
       storage: 500Gi
   volumeName: jellyfin-media-pv
+  storageClassName: nfs-client
