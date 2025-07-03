@@ -23,7 +23,7 @@ spec:
       volumes:
         - name: media
           persistentVolumeClaim:
-            claimName: ellyfin-media-pvc
+            claimName: jellyfin-media-pvc
 ---
 apiVersion: v1
 kind: Service
