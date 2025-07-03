@@ -22,17 +22,19 @@ spec:
               mountPath: /media
       volumes:
         - name: media
-          persistentVolumeClaim:
-            claimName: jellyfin-media-pvc
+          hostPath:
+            path: /mnt/nas
+            type: Directory
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: jellyfin
 spec:
+  type: NodePort
+  ports:
+    - port: 8096
+      targetPort: 8096
+      nodePort: 30096
   selector:
     app: jellyfin
-  ports:
-    - port: 80
-      targetPort: 8096
-  type: LoadBalancer

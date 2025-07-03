@@ -1,3 +1,2 @@
 resources:
-  - jellyfin-pv.yaml
   - jellyfin-deployment.yaml
