@@ -23,7 +23,7 @@ spec:
       volumes:
         - name: media
           persistentVolumeClaim:
-            claimName: nfs-test-pvc
+            claimName: ellyfin-media-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -33,6 +33,6 @@ spec:
   selector:
     app: jellyfin
   ports:
-    - port: 8096
+    - port: 80
       targetPort: 8096
-  type: NodePort
+  type: LoadBalancer
