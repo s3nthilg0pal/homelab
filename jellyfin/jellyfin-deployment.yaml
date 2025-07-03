@@ -23,7 +23,7 @@ spec:
       volumes:
         - name: media
           persistentVolumeClaim:
-            claimName: jellyfin-media-pvc
+            claimName: nfs-test-pvc
 ---
 apiVersion: v1
 kind: Service
