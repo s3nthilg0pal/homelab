@@ -16,4 +16,4 @@ spec:
       - name: sample-app
         image: nginx:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080
