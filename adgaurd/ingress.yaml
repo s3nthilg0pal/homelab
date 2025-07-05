@@ -20,6 +20,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: adguard-home
+                name: adguard-service
                 port:
-                  number: 80
+                  number: 3000

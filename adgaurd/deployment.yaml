@@ -1,55 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: adguard-home
+  name: adguard-deployment
   namespace: adguard
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: adguard-home
+      app: adguard
   template:
     metadata:
       labels:
-        app: adguard-home
+        app: adguard
     spec:
       containers:
-        - name: adguard-home
-          image: adguard/adguardhome:latest
-          ports:
-            - containerPort: 3000  # Web UI
-            - containerPort: 53    # DNS
-              protocol: UDP
-            - containerPort: 53
-              protocol: TCP
-          volumeMounts:
-            - mountPath: /opt/adguardhome/work
-              name: adguard-work
-            - mountPath: /opt/adguardhome/conf
+      - name: adguard-home
+        image: adguard/adguardhome:latest
+        env:
+        - name: AGH_CONFIG
+          valueFrom:
+            configMapKeyRef:
               name: adguard-config
+              key: AdGuardHome.yaml
+        ports:
+        - containerPort: 53 #dns
+          name: dns
+          protocol: UDP
+        - containerPort: 3000 #initial setup
+          name: http-initial
+        - containerPort: 80 #web gui
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - name: adguard-data
+          mountPath: /opt/adguardhome/work
       volumes:
-        - name: adguard-work
-          emptyDir: {}
-        - name: adguard-config
-          emptyDir: {}
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: adguard-home
-  namespace: adguard
-spec:
-  selector:
-    app: adguard-home
-  ports:
-    - name: http
-      port: 80
-      targetPort: 3000
-    - name: dns-tcp
-      port: 53
-      protocol: TCP
-      targetPort: 53
-    - name: dns-udp
-      port: 53
-      protocol: UDP
-      targetPort: 53
+      - name: adguard-data
+        persistentVolumeClaim:
+          claimName: adguard-pvc
