@@ -4,7 +4,7 @@ metadata:
   name: sample-app-ingress
 spec:
   rules:
-  - host: sample.senthil.nz
+  - host: sample.home
     http:
       paths:
       - path: /

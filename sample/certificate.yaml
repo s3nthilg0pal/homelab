@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: home-ca-issuer
     kind: ClusterIssuer
-  commonName: feedpushr.home
+  commonName: sample.home
   dnsNames:
-  - feedpushr.home
+  - sample.home

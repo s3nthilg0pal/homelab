@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - feedpushr.senthil.nz
+    - feedpushr.home
     secretName: feedpushr-tls
   rules:
-    - host: feedpushr.senthil.nz
+    - host: feedpushr.home
       http:
         paths:
           - path: /
