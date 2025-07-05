@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: adgaurd-cert
+  namespace: default
+spec:
+  secretName: adgaurd-tls
+  issuerRef:
+    name: home-ca-issuer
+    kind: ClusterIssuer
+  commonName: adgaurd.home
+  dnsNames:
+  - adgaurd.home
