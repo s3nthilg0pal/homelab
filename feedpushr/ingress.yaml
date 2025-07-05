@@ -3,14 +3,9 @@ kind: Ingress
 metadata:
   name: feedpushr
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   ingressClassName: nginx
-  tls:
-    - hosts:
-        - feedpushr.home
-      secretName: feedpushr-tls
   rules:
     - host: feedpushr.home
       http:
@@ -21,4 +16,4 @@ spec:
               service:
                 name: feedpushr
                 port:
-                  number: 8080
+                  number: 80
