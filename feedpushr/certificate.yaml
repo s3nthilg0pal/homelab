@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: feedpushr-cert
+  namespace: default
+spec:
+  secretName: feedpushr-tls
+  issuerRef:
+    name: letsencrypt-http
+    kind: ClusterIssuer
+  commonName: feedpushr.senthil.nz
+  dnsNames:
+  - feedpushr.senthil.nz
