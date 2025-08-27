@@ -21,7 +21,7 @@ spec:
         runAsNonRoot: true
       containers:
         - name: blocky
-          image: spx01/blocky:latest
+          image: ghcr.io/0xerr0r/blocky:main
           args:
             - --config=/etc/blocky/config.yaml
           ports:

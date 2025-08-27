@@ -13,8 +13,8 @@ commonLabels:
   app.kubernetes.io/part-of: dns
 
 images:
-  - name: spx01/blocky
-    newTag: latest
+  - name: ghcr.io/0xerr0r/blocky
+    newTag: main
 
 configMapGenerator:
   - name: blocky-config
