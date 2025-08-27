@@ -21,7 +21,7 @@ spec:
         runAsNonRoot: true
       containers:
         - name: blocky
-          image: ghcr.io/0xerr0r/blocky:main
+          image: blocky
           imagePullPolicy: IfNotPresent
           args:
             - --config=/etc/blocky/config.yaml
