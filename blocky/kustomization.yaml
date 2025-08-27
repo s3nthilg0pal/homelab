@@ -14,7 +14,7 @@ commonLabels:
 
 images:
   - name: ghcr.io/0xerr0r/blocky
-    newTag: latest
+    newTag: v0.26.2
 
 configMapGenerator:
   - name: blocky-config
