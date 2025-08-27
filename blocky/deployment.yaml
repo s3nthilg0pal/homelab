@@ -22,6 +22,7 @@ spec:
       containers:
         - name: blocky
           image: ghcr.io/0xerr0r/blocky:main
+          imagePullPolicy: IfNotPresent
           args:
             - --config=/etc/blocky/config.yaml
           ports:
