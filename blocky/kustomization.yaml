@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: blocky
+
+resources:
+  - namespace.yaml
+  - deployment.yaml
+  - service.yaml
+
+commonLabels:
+  app.kubernetes.io/name: blocky
+  app.kubernetes.io/part-of: dns
+
+images:
+  - name: ghcr.io/0xerr0r/blocky
+    newTag: latest
+
+configMapGenerator:
+  - name: blocky-config
+    files:
+      - config/blocky-config.yaml
+
+generatorOptions:
+  disableNameSuffixHash: false

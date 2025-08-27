@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: blocky
+  annotations:
+    # If you use MetalLB, pick the right annotation key for your version.
+    # Use ONE of the following (comment/uncomment to match your cluster):
+    metallb.io/address-pool: pool
+    # metallb.universe.tf/address-pool: pool
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local   # preserve client IPs (useful for ACLs/logging)
+  ports:
+    - name: dns-udp
+      port: 53
+      targetPort: 53
+      protocol: UDP
+    - name: dns-tcp
+      port: 53
+      targetPort: 53
+      protocol: TCP
+    - name: http
+      port: 4000
+      targetPort: 4000
+      protocol: TCP
+  selector:
+    app: blocky
+# Optionally pin an IP from MetalLB's pool:
+#  loadBalancerIP: 192.168.1.53
