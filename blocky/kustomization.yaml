@@ -12,6 +12,7 @@ commonLabels:
   app.kubernetes.io/name: blocky
   app.kubernetes.io/part-of: dns
 
+
 images:
   - name: blocky
     newname: ghcr.io/0xerr0r/blocky
@@ -21,6 +22,8 @@ configMapGenerator:
   - name: blocky-config
     files:
       - config/blocky-config.yaml
+patchesStrategicMerge:
+  - node-selector.yaml
 
 generatorOptions:
   disableNameSuffixHash: false
