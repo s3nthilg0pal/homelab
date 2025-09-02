@@ -17,10 +17,3 @@ spec:
           image: ncarlier/feedpushr
           ports:
             - containerPort: 8080
-          volumeMounts:
-            - name: feedpushr-data
-              mountPath: /var/opt/feedpushr
-      volumes:
-        - name: feedpushr-data
-          persistentVolumeClaim:
-            claimName: feedpushr-pvc
