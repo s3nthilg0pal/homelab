@@ -16,4 +16,4 @@ spec:
         - name: feedpushr
           image: ncarlier/feedpushr
           ports:
-            - containerPort: 8080
+            - containerPort: 80
