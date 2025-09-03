@@ -25,6 +25,7 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /var/lib/pgadmin
+              subPath: data
       volumes:
         - name: data
           persistentVolumeClaim:
