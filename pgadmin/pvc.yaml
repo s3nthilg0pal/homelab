@@ -7,4 +7,4 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  storageClassName: local-path   # adjust if you use another class
+  storageClassName: longhorn   # adjust if you use another class
