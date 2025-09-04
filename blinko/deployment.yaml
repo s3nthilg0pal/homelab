@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blinko-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blinko-website
+  template:
+    metadata:
+      labels:
+        app: blinko-website
+    spec:
+      containers:
+        - name: blinko-website
+          image: blinkospace/blinko:latest
+          ports:
+            - containerPort: 1111
+          envFrom:
+            - configMapRef:
+                name: blinko-config
+            - secretRef:
+                name: blinko-secret
+          volumeMounts:
+            - name: blinko-storage
+              mountPath: /app/.blinko
+      volumes:
+        - name: blinko-storage
+          persistentVolumeClaim:
+            claimName: blinko-pvc

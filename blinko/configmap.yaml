@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blinko-config
+data:
+  NODE_ENV: "production"
+  NEXTAUTH_URL: "http://localhost:1111"
+  NEXT_PUBLIC_BASE_URL: "http://localhost:1111"
