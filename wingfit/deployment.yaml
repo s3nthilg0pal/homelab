@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wingfit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wingfit
+  template:
+    metadata:
+      labels:
+        app: wingfit
+    spec:
+      containers:
+        - name: wingfit
+          image: ghcr.io/itskovacs/wingfit:5
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+            - name: storage
+              mountPath: /app/storage
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: wingfit-storage
