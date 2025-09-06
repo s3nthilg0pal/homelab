@@ -37,14 +37,14 @@ spec:
           readinessProbe:
             httpGet:
               path: /api/heartbeat
-              port: 80
+              port: http
             periodSeconds: 5
             timeoutSeconds: 5
             failureThreshold: 5
           livenessProbe:
             httpGet:
               path: /api/heartbeat
-              port: 80
+              port: http
             periodSeconds: 10
             timeoutSeconds: 5
             failureThreshold: 5
