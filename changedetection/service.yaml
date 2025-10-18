@@ -3,10 +3,11 @@ kind: Service
 metadata:
   name: changedetection
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: changedetection
   ports:
     - name: http
       port: 5000
       targetPort: http
+      protocol: TCP
