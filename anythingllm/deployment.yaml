@@ -25,7 +25,7 @@ spec:
             - name: LLM_PROVIDER
               value: ollama
             - name: OLLAMA_BASE_PATH
-              value: http://192.168.0.232:11434
+              value: http://192.168.0.162:11434
             - name: OLLAMA_MODEL_PREF
               value: deepseek-r1
             - name: OLLAMA_MODEL_TOKEN_LIMIT
@@ -33,7 +33,7 @@ spec:
             - name: EMBEDDING_ENGINE
               value: ollama
             - name: EMBEDDING_BASE_PATH
-              value: http://192.168.0.232:11434
+              value: http://192.168.0.162:11434
             - name: EMBEDDING_MODEL_PREF
               value: nomic-embed-text:latest
             - name: EMBEDDING_MODEL_MAX_CHUNK_LENGTH
