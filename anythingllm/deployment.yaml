@@ -21,19 +21,19 @@ spec:
             - name: STORAGE_DIR
               value: /app/server/storage
             - name: JWT_SECRET
-              value: "make this a large list of random numbers and letters 20+"
+              value: "YlrrxgUim3XIVy+ZFSljA4ZarditKhnHOkgyIYS/BTieQbp7bAwU9NY6sW5m2yDM"
             - name: LLM_PROVIDER
               value: ollama
             - name: OLLAMA_BASE_PATH
-              value: http://192.168.0.233:11434
+              value: http://192.168.0.232:11434
             - name: OLLAMA_MODEL_PREF
-              value: llama2
+              value: deepseek-r1
             - name: OLLAMA_MODEL_TOKEN_LIMIT
               value: "4096"
             - name: EMBEDDING_ENGINE
               value: ollama
             - name: EMBEDDING_BASE_PATH
-              value: http://192.168.0.233:11434
+              value: http://192.168.0.232:11434
             - name: EMBEDDING_MODEL_PREF
               value: nomic-embed-text:latest
             - name: EMBEDDING_MODEL_MAX_CHUNK_LENGTH
@@ -46,10 +46,6 @@ spec:
               value: native
             - name: PASSWORDMINCHAR
               value: "8"
-          securityContext:
-            capabilities:
-              add:
-                - SYS_ADMIN
           volumeMounts:
             - name: storage
               mountPath: /app/server/storage
