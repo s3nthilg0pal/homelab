@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudnativepg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudnativepg
+  template:
+    metadata:
+      labels:
+        app: cloudnativepg
+    spec:
+      containers:
+        - name: cloudnativepg
+          image: ghcr.io/cloudnative-pg/cloudnative-pg:latest
+          ports:
+            - name: metrics
+              containerPort: 8080
+            - name: webhook
+              containerPort: 9443
